@@ -1,5 +1,1 @@
-print("Eafafq")
-print("Moi")
-print("Time test")
-print("Yess?")
-print("Hello")
+
