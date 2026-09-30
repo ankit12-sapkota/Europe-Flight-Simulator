@@ -1,4 +1,5 @@
 import geopy
+from geopy.distance import geodesic
 import mysql.connector 
 import random
 
@@ -63,12 +64,40 @@ def hae_lentokentat():
 
     return result
     
+
+
+
+
+#Starting the distance
+#Initial point is always Vaclav Havel Airport Parague icao code = "LKPR"
+
+def distance(destination):
+    
+    sql = f"Select name, latitude_deg, longitude_deg from airport where ident = '{destination}'; "
+    cursor = connection.cursor()
+    cursor.execute(sql)
+    result = cursor.fetchone()
+    return result
+
 lentokentat = hae_lentokentat()
 #print(lentokentat)
 valitut = random.sample(lentokentat,4)
+for i in valitut:
+    print(i)
+destination = input("Choose the ICAO code from the listed 4 airports.")
+
+destination1 = distance(destination)
 
 
 
+destination1_latitiude = destination[0]
+destination1_longitude = destination[1]
+
+parag_airport = (50.1008, 14.26)
+destination_airport = (destination[0], destination[1])
+
+distance_difference = (geodesic(parag_airport, destination_airport))
+print(distance_difference)
 
 
 
