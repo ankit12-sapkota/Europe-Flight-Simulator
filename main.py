@@ -22,6 +22,24 @@ except mysql.connector.Error as error:
     print(error)
 
 #MAIN PROGRAM GAME CODE BEGINS HERE:
+def get_username(name, username):
+    sql = f"Select id from player"
+    cursor = connection.cursor()
+    cursor.execute(sql)
+    result = cursor.fetchall()
+    for i in result:
+        if username in result:
+            print("Username already taken")
+        else:
+            update_sql = f"Insert into player (id, screen_name) Values {username, name};"
+            cursor.execute(update_sql)
+    
+
+username = input("Enter the user name.")
+name = input("Enter your name:")
+reault = get_username(name , username)
+
+
 
 
 
