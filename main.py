@@ -53,6 +53,20 @@ name = input("Enter your name: ")
 
 get_username(name, username)
 
+def hae_lentokentat():
+    sql = "SELECT name, ident FROM airport WHERE TYPE = 'large_airport' and continent = 'EU' limit 30"
+    cursor = connection.cursor()
+    cursor.execute(sql)
+    result = cursor.fetchall()
+    if cursor.rowcount > 0:
+        pass
+
+    return result
+    
+lentokentat = hae_lentokentat()
+#print(lentokentat)
+valitut = random.sample(lentokentat,4)
+
 
 
 
