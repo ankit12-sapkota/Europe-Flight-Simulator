@@ -112,12 +112,12 @@ distance_travelled = distance.kilometers
 
 consumed_fuel = fuel_consumed(distance_travelled)
 co2_taken = co2_consumed(consumed_fuel)
-
+points_for_distance = distance_travelled * 0.1
 def update_data():
     sql = """
         INSERT INTO player
-        (id, screen_name, current_airport, Destination, distance, Total_fuel_consumed, Co2_consumed)
-        VALUES (%s, %s,%s, %s, %s, %s, %s)
+        (id, screen_name, current_airport, Destination, distance, Total_fuel_consumed, Co2_consumed, Goal_points)
+        VALUES (%s, %s,%s, %s, %s, %s, %s, %s)
     """
 
     cursor = connection.cursor()
@@ -130,6 +130,7 @@ def update_data():
         distance_travelled,
         consumed_fuel,
         co2_taken
+        points_for_distance
     ))
 
     connection.commit()
