@@ -129,7 +129,7 @@ def update_data():
         destination,
         distance_travelled,
         consumed_fuel,
-        co2_taken
+        co2_taken,
         points_for_distance
     ))
 
