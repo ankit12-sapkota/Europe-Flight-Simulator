@@ -142,18 +142,31 @@ def update_data():
 
 data_update = update_data()
 
+def update_data():
+    sql = """
+        UPDATE player
+        SET
+            Total_fuel = Total_fuel - Total_fuel_consumed,
+            Goal_points = %s,
+            current_airport = %s,
+            destination = %s,
+            distance = %s
+        WHERE id = %s
+    """
 
+    cursor = connection.cursor()
 
+    cursor.execute(sql, (
+        points_for_distance,
+        current_airport,
+        destination,
+        distance_travelled,
+        username
+    ))
 
+    connection.commit()
+    cursor.close()
 
+    print("Data updated successfully!")
 
-
-
-
-
-
-
-
-
-
-
+data_update = update_data()
