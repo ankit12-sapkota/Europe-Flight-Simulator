@@ -1,3 +1,4 @@
+#We test our activities in this file
 import geopy
 from geopy.distance import geodesic
 import mysql.connector 
