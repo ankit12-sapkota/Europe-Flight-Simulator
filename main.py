@@ -116,8 +116,8 @@ co2_taken = co2_consumed(consumed_fuel)
 def update_data():
     sql = """
         INSERT INTO player
-        (id, screen_name, Destination, distance, Total_fuel_consumed, Co2_consumed)
-        VALUES (%s, %s, %s, %s, %s, %s)
+        (id, screen_name, current_airport, Destination, distance, Total_fuel_consumed, Co2_consumed)
+        VALUES (%s, %s,%s, %s, %s, %s, %s)
     """
 
     cursor = connection.cursor()
@@ -125,6 +125,7 @@ def update_data():
     cursor.execute(sql, (
         username,
         name,
+        current_airport,
         destination,
         distance_travelled,
         consumed_fuel,
@@ -142,7 +143,7 @@ data_update = update_data()
 
 
 
-print("ankit")
+
 
 
 
