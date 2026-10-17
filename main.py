@@ -6,12 +6,12 @@ import random
 
 try:
     connection = mysql.connector.connect(
-        host='airport.mysql.database.azure.com',
+        host='',
         port=3306,
-        user='airport_simulator',
-        password='Simulator@',
+        user='',
+        password='',
         database='europe_airport_game',
-        #ssl_ca=r'G:\Python projects\Europe-Flight-Simulator\DigiCertGlobalRootG2.crt.pem',
+        #ssl_ca=r'',
         #ssl_verify_cert=True,
     )
 
